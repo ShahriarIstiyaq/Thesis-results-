@@ -1,0 +1,5 @@
+,Aphids_Disease,Blotch,Healthy_Leaf,Leaf_Spot
+Aphids_Disease,43,1,1,0
+Blotch,0,43,2,3
+Healthy_Leaf,1,0,42,0
+Leaf_Spot,6,2,1,30

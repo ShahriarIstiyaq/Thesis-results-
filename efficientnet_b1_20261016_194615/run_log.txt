@@ -1,0 +1,168 @@
+Run directory: /content/drive/MyDrive/Colab Notebooks/Thesis notebook/efficientnet_b1_20261016_194615
+Model: efficientnet_b1 (timm) | img_size 240 | batch 32 | lr 0.0001 | epochs 30 | dropout 0.3 | seed 42 | unfreeze_last_blocks 1
+================================================================================
+STEP 1: verifying dataset + CSV manifests
+================================================================================
+Images on disk under data_root: 865  | folders containing images: ['Aphids_Disease', 'Blotch', 'Healthy_Leaf', 'Leaf_Spot']
+Folds found: [1, 2, 3]
+  fold 1: train=Fold_1_Train.csv  val=Fold_1_Validation.csv
+  fold 2: train=Fold_2_Train.csv  val=Fold_2_Validation.csv
+  fold 3: train=Fold_3_Train.csv  val=Fold_3_Validation.csv
+  Test set: using manifest /content/drive/MyDrive/Dataset Files/Turmeric Dataset/Common_test_20/Common_Test_20.csv
+
+Classes (4): ['Aphids_Disease', 'Blotch', 'Healthy_Leaf', 'Leaf_Spot']
+
+TEST  n=175  per-class=[45, 48, 43, 39]
+FOLD 1: train=460 [117, 127, 113, 103] | val=230 [59, 63, 57, 51]
+        overlaps -> train/val=0 train/test=0 val/test=0  dups(train/val)=0/0
+FOLD 2: train=460 [117, 127, 113, 103] | val=230 [59, 63, 57, 51]
+        overlaps -> train/val=0 train/test=0 val/test=0  dups(train/val)=0/0
+FOLD 3: train=460 [118, 126, 114, 102] | val=230 [58, 64, 56, 52]
+        overlaps -> train/val=0 train/test=0 val/test=0  dups(train/val)=0/0
+
+Unique images referenced by all CSVs + test set: 865 (you said dataset has 865)
+Class imbalance ratio (fold-1 train, max/min): 1.23  -> roughly balanced
+Verification report saved.
+
+Device: cuda (Tesla T4) | torch 2.11.0+cu130
+================================================================================
+STEP 2: training
+================================================================================
+  [freeze] trainable 2,698,116/6,518,308 params
+  [freeze] trainable layers: ['blocks.6.0.bn1', 'blocks.6.0.bn2', 'blocks.6.0.bn3', 'blocks.6.0.conv_dw', 'blocks.6.0.conv_pw', 'blocks.6.0.conv_pwl', 'blocks.6.0.se.conv_expand', 'blocks.6.0.se.conv_reduce', 'blocks.6.1.bn1', 'blocks.6.1.bn2', 'blocks.6.1.bn3', 'blocks.6.1.conv_dw', 'blocks.6.1.conv_pw', 'blocks.6.1.conv_pwl', 'blocks.6.1.se.conv_expand', 'blocks.6.1.se.conv_reduce', 'bn2', 'classifier', 'conv_head']
+[fold 1] model parameters: total 6,518,308 | trainable 2,698,116
+  (codecarbon unavailable: No module named 'codecarbon') - energy will be estimated only
+[fold 1] ep 01/30 | train loss 3.6691 acc 0.3130 | val loss 3.4291 acc 0.2957 auc 0.5690 | lr 1.00e-04 | 7.7s *best*
+[fold 1] ep 02/30 | train loss 2.4637 acc 0.4174 | val loss 2.3622 acc 0.4696 auc 0.7106 | lr 1.00e-04 | 1.9s *best*
+[fold 1] ep 03/30 | train loss 2.0859 acc 0.5304 | val loss 1.7825 acc 0.5783 auc 0.7966 | lr 1.00e-04 | 1.9s *best*
+[fold 1] ep 04/30 | train loss 1.7821 acc 0.5587 | val loss 1.4560 acc 0.6609 auc 0.8547 | lr 1.00e-04 | 1.9s *best*
+[fold 1] ep 05/30 | train loss 1.4645 acc 0.6826 | val loss 1.1611 acc 0.6957 auc 0.8903 | lr 1.00e-04 | 1.9s *best*
+[fold 1] ep 06/30 | train loss 1.1997 acc 0.6804 | val loss 0.9899 acc 0.7261 auc 0.9106 | lr 1.00e-04 | 1.9s *best*
+[fold 1] ep 07/30 | train loss 1.1322 acc 0.7196 | val loss 0.8716 acc 0.7565 auc 0.9276 | lr 1.00e-04 | 1.9s *best*
+[fold 1] ep 08/30 | train loss 0.9255 acc 0.7500 | val loss 0.8723 acc 0.7391 auc 0.9320 | lr 1.00e-04 | 1.8s (no improve 1/7)
+[fold 1] ep 09/30 | train loss 0.7619 acc 0.7804 | val loss 0.7603 acc 0.7696 auc 0.9427 | lr 1.00e-04 | 1.9s *best*
+[fold 1] ep 10/30 | train loss 0.7013 acc 0.8065 | val loss 0.6691 acc 0.8000 auc 0.9510 | lr 1.00e-04 | 1.9s *best*
+[fold 1] ep 11/30 | train loss 0.7592 acc 0.7978 | val loss 0.6425 acc 0.8174 auc 0.9555 | lr 1.00e-04 | 1.9s *best*
+[fold 1] ep 12/30 | train loss 0.6264 acc 0.7978 | val loss 0.5797 acc 0.8217 auc 0.9627 | lr 1.00e-04 | 1.9s *best*
+[fold 1] ep 13/30 | train loss 0.5359 acc 0.8543 | val loss 0.5344 acc 0.8435 auc 0.9671 | lr 1.00e-04 | 1.9s *best*
+[fold 1] ep 14/30 | train loss 0.6297 acc 0.8304 | val loss 0.5094 acc 0.8435 auc 0.9696 | lr 1.00e-04 | 1.9s *best*
+[fold 1] ep 15/30 | train loss 0.4746 acc 0.8630 | val loss 0.4914 acc 0.8565 auc 0.9734 | lr 1.00e-04 | 1.8s *best*
+[fold 1] ep 16/30 | train loss 0.5676 acc 0.8304 | val loss 0.4389 acc 0.8565 auc 0.9773 | lr 1.00e-04 | 1.8s *best*
+[fold 1] ep 17/30 | train loss 0.4473 acc 0.8630 | val loss 0.4082 acc 0.8696 auc 0.9791 | lr 1.00e-04 | 1.9s *best*
+[fold 1] ep 18/30 | train loss 0.4285 acc 0.8826 | val loss 0.3847 acc 0.8870 auc 0.9806 | lr 1.00e-04 | 1.9s *best*
+[fold 1] ep 19/30 | train loss 0.3495 acc 0.8739 | val loss 0.3566 acc 0.8870 auc 0.9826 | lr 1.00e-04 | 1.9s *best*
+[fold 1] ep 20/30 | train loss 0.4092 acc 0.8696 | val loss 0.3444 acc 0.8913 auc 0.9846 | lr 1.00e-04 | 1.8s *best*
+[fold 1] ep 21/30 | train loss 0.3782 acc 0.8826 | val loss 0.3335 acc 0.8870 auc 0.9851 | lr 1.00e-04 | 1.8s *best*
+[fold 1] ep 22/30 | train loss 0.2420 acc 0.9087 | val loss 0.3394 acc 0.8957 auc 0.9849 | lr 1.00e-04 | 1.8s (no improve 1/7)
+[fold 1] ep 23/30 | train loss 0.3494 acc 0.9000 | val loss 0.3244 acc 0.9000 auc 0.9857 | lr 1.00e-04 | 1.8s *best*
+[fold 1] ep 24/30 | train loss 0.3486 acc 0.8957 | val loss 0.3216 acc 0.8826 auc 0.9856 | lr 1.00e-04 | 1.9s *best*
+[fold 1] ep 25/30 | train loss 0.3541 acc 0.8935 | val loss 0.3118 acc 0.8913 auc 0.9882 | lr 1.00e-04 | 1.9s *best*
+[fold 1] ep 26/30 | train loss 0.2738 acc 0.8957 | val loss 0.2935 acc 0.9130 auc 0.9888 | lr 1.00e-04 | 1.9s *best*
+[fold 1] ep 27/30 | train loss 0.2928 acc 0.9196 | val loss 0.2747 acc 0.9130 auc 0.9899 | lr 1.00e-04 | 2.0s *best*
+[fold 1] ep 28/30 | train loss 0.3045 acc 0.9022 | val loss 0.2518 acc 0.9087 auc 0.9913 | lr 1.00e-04 | 1.9s *best*
+[fold 1] ep 29/30 | train loss 0.3617 acc 0.8978 | val loss 0.2392 acc 0.9087 auc 0.9920 | lr 1.00e-04 | 1.9s *best*
+[fold 1] ep 30/30 | train loss 0.3739 acc 0.9022 | val loss 0.2385 acc 0.9217 auc 0.9920 | lr 1.00e-04 | 1.8s *best*
+[fold 1] stopped: max_epochs
+[fold 1] best epoch 30 | best val loss 0.2385 | val acc 0.9217 | time 1.0 min
+  [freeze] trainable 2,698,116/6,518,308 params
+  [freeze] trainable layers: ['blocks.6.0.bn1', 'blocks.6.0.bn2', 'blocks.6.0.bn3', 'blocks.6.0.conv_dw', 'blocks.6.0.conv_pw', 'blocks.6.0.conv_pwl', 'blocks.6.0.se.conv_expand', 'blocks.6.0.se.conv_reduce', 'blocks.6.1.bn1', 'blocks.6.1.bn2', 'blocks.6.1.bn3', 'blocks.6.1.conv_dw', 'blocks.6.1.conv_pw', 'blocks.6.1.conv_pwl', 'blocks.6.1.se.conv_expand', 'blocks.6.1.se.conv_reduce', 'bn2', 'classifier', 'conv_head']
+[fold 2] model parameters: total 6,518,308 | trainable 2,698,116
+  (codecarbon unavailable: No module named 'codecarbon') - energy will be estimated only
+[fold 2] ep 01/30 | train loss 3.8145 acc 0.3109 | val loss 2.8351 acc 0.3130 auc 0.6219 | lr 1.00e-04 | 2.0s *best*
+[fold 2] ep 02/30 | train loss 2.5533 acc 0.4435 | val loss 1.8369 acc 0.4957 auc 0.7598 | lr 1.00e-04 | 2.1s *best*
+[fold 2] ep 03/30 | train loss 1.8675 acc 0.5587 | val loss 1.3558 acc 0.5957 auc 0.8407 | lr 1.00e-04 | 2.0s *best*
+[fold 2] ep 04/30 | train loss 1.5388 acc 0.5870 | val loss 1.1306 acc 0.6739 auc 0.8891 | lr 1.00e-04 | 2.0s *best*
+[fold 2] ep 05/30 | train loss 1.1835 acc 0.6870 | val loss 0.9394 acc 0.7130 auc 0.9131 | lr 1.00e-04 | 1.9s *best*
+[fold 2] ep 06/30 | train loss 1.2641 acc 0.6870 | val loss 0.7832 acc 0.7609 auc 0.9341 | lr 1.00e-04 | 2.0s *best*
+[fold 2] ep 07/30 | train loss 1.0821 acc 0.7370 | val loss 0.6804 acc 0.7696 auc 0.9480 | lr 1.00e-04 | 2.0s *best*
+[fold 2] ep 08/30 | train loss 0.9176 acc 0.7652 | val loss 0.6214 acc 0.7870 auc 0.9535 | lr 1.00e-04 | 2.0s *best*
+[fold 2] ep 09/30 | train loss 0.8082 acc 0.7783 | val loss 0.5896 acc 0.7870 auc 0.9593 | lr 1.00e-04 | 2.0s *best*
+[fold 2] ep 10/30 | train loss 0.8143 acc 0.7826 | val loss 0.5032 acc 0.8391 auc 0.9668 | lr 1.00e-04 | 2.1s *best*
+[fold 2] ep 11/30 | train loss 0.7316 acc 0.8043 | val loss 0.4903 acc 0.8348 auc 0.9691 | lr 1.00e-04 | 1.9s *best*
+[fold 2] ep 12/30 | train loss 0.6388 acc 0.8130 | val loss 0.4489 acc 0.8435 auc 0.9735 | lr 1.00e-04 | 1.9s *best*
+[fold 2] ep 13/30 | train loss 0.5560 acc 0.8478 | val loss 0.4168 acc 0.8522 auc 0.9760 | lr 1.00e-04 | 2.0s *best*
+[fold 2] ep 14/30 | train loss 0.5507 acc 0.8413 | val loss 0.4021 acc 0.8652 auc 0.9777 | lr 1.00e-04 | 2.0s *best*
+[fold 2] ep 15/30 | train loss 0.4984 acc 0.8652 | val loss 0.3687 acc 0.8739 auc 0.9814 | lr 1.00e-04 | 2.0s *best*
+[fold 2] ep 16/30 | train loss 0.5007 acc 0.8500 | val loss 0.3556 acc 0.8783 auc 0.9838 | lr 1.00e-04 | 2.0s *best*
+[fold 2] ep 17/30 | train loss 0.4429 acc 0.8696 | val loss 0.3102 acc 0.8826 auc 0.9862 | lr 1.00e-04 | 2.0s *best*
+[fold 2] ep 18/30 | train loss 0.3594 acc 0.8848 | val loss 0.2989 acc 0.9000 auc 0.9873 | lr 1.00e-04 | 2.0s *best*
+[fold 2] ep 19/30 | train loss 0.4109 acc 0.8761 | val loss 0.2978 acc 0.8913 auc 0.9880 | lr 1.00e-04 | 2.0s *best*
+[fold 2] ep 20/30 | train loss 0.2967 acc 0.9022 | val loss 0.3296 acc 0.8913 auc 0.9882 | lr 1.00e-04 | 2.0s (no improve 1/7)
+[fold 2] ep 21/30 | train loss 0.4253 acc 0.8783 | val loss 0.2907 acc 0.8913 auc 0.9888 | lr 1.00e-04 | 2.0s *best*
+[fold 2] ep 22/30 | train loss 0.3901 acc 0.8783 | val loss 0.3082 acc 0.8957 auc 0.9891 | lr 1.00e-04 | 1.9s (no improve 1/7)
+[fold 2] ep 23/30 | train loss 0.3758 acc 0.8978 | val loss 0.2930 acc 0.9000 auc 0.9898 | lr 1.00e-04 | 2.0s (no improve 2/7)
+[fold 2] ep 24/30 | train loss 0.3272 acc 0.8935 | val loss 0.2615 acc 0.9130 auc 0.9907 | lr 1.00e-04 | 2.1s *best*
+[fold 2] ep 25/30 | train loss 0.3533 acc 0.8935 | val loss 0.2539 acc 0.9174 auc 0.9916 | lr 1.00e-04 | 2.0s *best*
+[fold 2] ep 26/30 | train loss 0.3233 acc 0.9087 | val loss 0.2574 acc 0.9043 auc 0.9915 | lr 1.00e-04 | 2.0s (no improve 1/7)
+[fold 2] ep 27/30 | train loss 0.2671 acc 0.9174 | val loss 0.2495 acc 0.9217 auc 0.9918 | lr 1.00e-04 | 1.9s *best*
+[fold 2] ep 28/30 | train loss 0.2950 acc 0.9130 | val loss 0.2234 acc 0.9261 auc 0.9928 | lr 1.00e-04 | 2.0s *best*
+[fold 2] ep 29/30 | train loss 0.2647 acc 0.9239 | val loss 0.2300 acc 0.9261 auc 0.9926 | lr 1.00e-04 | 1.9s (no improve 1/7)
+[fold 2] ep 30/30 | train loss 0.2811 acc 0.9174 | val loss 0.2220 acc 0.9304 auc 0.9933 | lr 1.00e-04 | 2.0s *best*
+[fold 2] stopped: max_epochs
+[fold 2] best epoch 30 | best val loss 0.2220 | val acc 0.9304 | time 1.0 min
+  [freeze] trainable 2,698,116/6,518,308 params
+  [freeze] trainable layers: ['blocks.6.0.bn1', 'blocks.6.0.bn2', 'blocks.6.0.bn3', 'blocks.6.0.conv_dw', 'blocks.6.0.conv_pw', 'blocks.6.0.conv_pwl', 'blocks.6.0.se.conv_expand', 'blocks.6.0.se.conv_reduce', 'blocks.6.1.bn1', 'blocks.6.1.bn2', 'blocks.6.1.bn3', 'blocks.6.1.conv_dw', 'blocks.6.1.conv_pw', 'blocks.6.1.conv_pwl', 'blocks.6.1.se.conv_expand', 'blocks.6.1.se.conv_reduce', 'bn2', 'classifier', 'conv_head']
+[fold 3] model parameters: total 6,518,308 | trainable 2,698,116
+  (codecarbon unavailable: No module named 'codecarbon') - energy will be estimated only
+[fold 3] ep 01/30 | train loss 3.9138 acc 0.2935 | val loss 3.0091 acc 0.3087 auc 0.5912 | lr 1.00e-04 | 1.9s *best*
+[fold 3] ep 02/30 | train loss 2.4627 acc 0.4435 | val loss 2.0202 acc 0.4522 auc 0.7245 | lr 1.00e-04 | 2.0s *best*
+[fold 3] ep 03/30 | train loss 2.1288 acc 0.5022 | val loss 1.4524 acc 0.5913 auc 0.8239 | lr 1.00e-04 | 2.4s *best*
+[fold 3] ep 04/30 | train loss 1.7140 acc 0.5804 | val loss 1.1801 acc 0.6478 auc 0.8826 | lr 1.00e-04 | 1.9s *best*
+[fold 3] ep 05/30 | train loss 1.2013 acc 0.6783 | val loss 0.9183 acc 0.6913 auc 0.9177 | lr 1.00e-04 | 2.0s *best*
+[fold 3] ep 06/30 | train loss 1.1160 acc 0.7043 | val loss 0.7420 acc 0.7435 auc 0.9409 | lr 1.00e-04 | 2.0s *best*
+[fold 3] ep 07/30 | train loss 0.8981 acc 0.7457 | val loss 0.6903 acc 0.7565 auc 0.9515 | lr 1.00e-04 | 1.9s *best*
+[fold 3] ep 08/30 | train loss 1.0390 acc 0.7239 | val loss 0.6061 acc 0.7783 auc 0.9578 | lr 1.00e-04 | 2.0s *best*
+[fold 3] ep 09/30 | train loss 0.6871 acc 0.8130 | val loss 0.5474 acc 0.8043 auc 0.9654 | lr 1.00e-04 | 2.0s *best*
+[fold 3] ep 10/30 | train loss 0.6675 acc 0.8043 | val loss 0.4665 acc 0.8174 auc 0.9728 | lr 1.00e-04 | 2.0s *best*
+[fold 3] ep 11/30 | train loss 0.6477 acc 0.8174 | val loss 0.4571 acc 0.8304 auc 0.9764 | lr 1.00e-04 | 2.0s *best*
+[fold 3] ep 12/30 | train loss 0.6120 acc 0.8304 | val loss 0.4340 acc 0.8261 auc 0.9781 | lr 1.00e-04 | 2.0s *best*
+[fold 3] ep 13/30 | train loss 0.5566 acc 0.8196 | val loss 0.4434 acc 0.8391 auc 0.9810 | lr 1.00e-04 | 2.1s (no improve 1/7)
+[fold 3] ep 14/30 | train loss 0.4977 acc 0.8543 | val loss 0.4156 acc 0.8783 auc 0.9838 | lr 1.00e-04 | 2.0s *best*
+[fold 3] ep 15/30 | train loss 0.5249 acc 0.8565 | val loss 0.3955 acc 0.8826 auc 0.9851 | lr 1.00e-04 | 2.0s *best*
+[fold 3] ep 16/30 | train loss 0.3985 acc 0.8783 | val loss 0.3397 acc 0.8870 auc 0.9873 | lr 1.00e-04 | 1.9s *best*
+[fold 3] ep 17/30 | train loss 0.4769 acc 0.8543 | val loss 0.3227 acc 0.9000 auc 0.9876 | lr 1.00e-04 | 2.0s *best*
+[fold 3] ep 18/30 | train loss 0.3865 acc 0.8783 | val loss 0.3340 acc 0.9000 auc 0.9878 | lr 1.00e-04 | 2.0s (no improve 1/7)
+[fold 3] ep 19/30 | train loss 0.3782 acc 0.8761 | val loss 0.3174 acc 0.8957 auc 0.9884 | lr 1.00e-04 | 1.9s *best*
+[fold 3] ep 20/30 | train loss 0.3044 acc 0.9000 | val loss 0.3087 acc 0.9043 auc 0.9887 | lr 1.00e-04 | 1.9s *best*
+[fold 3] ep 21/30 | train loss 0.3267 acc 0.9022 | val loss 0.2906 acc 0.9217 auc 0.9894 | lr 1.00e-04 | 2.0s *best*
+[fold 3] ep 22/30 | train loss 0.3180 acc 0.8913 | val loss 0.3323 acc 0.9043 auc 0.9882 | lr 1.00e-04 | 2.0s (no improve 1/7)
+[fold 3] ep 23/30 | train loss 0.2332 acc 0.9174 | val loss 0.3205 acc 0.9130 auc 0.9894 | lr 1.00e-04 | 1.9s (no improve 2/7)
+[fold 3] ep 24/30 | train loss 0.2887 acc 0.9109 | val loss 0.3091 acc 0.9174 auc 0.9892 | lr 1.00e-04 | 2.1s (no improve 3/7)
+[fold 3] ep 25/30 | train loss 0.2461 acc 0.9326 | val loss 0.3443 acc 0.9217 auc 0.9886 | lr 1.00e-04 | 1.9s (no improve 4/7)
+[fold 3] ep 26/30 | train loss 0.2095 acc 0.9304 | val loss 0.3464 acc 0.9217 auc 0.9887 | lr 5.00e-05 | 2.0s (no improve 5/7)
+[fold 3] ep 27/30 | train loss 0.2636 acc 0.9152 | val loss 0.3228 acc 0.9174 auc 0.9893 | lr 5.00e-05 | 2.0s (no improve 6/7)
+[fold 3] ep 28/30 | train loss 0.2013 acc 0.9348 | val loss 0.2852 acc 0.9261 auc 0.9901 | lr 5.00e-05 | 2.0s *best*
+[fold 3] ep 29/30 | train loss 0.3165 acc 0.9043 | val loss 0.2964 acc 0.9261 auc 0.9902 | lr 5.00e-05 | 2.0s (no improve 1/7)
+[fold 3] ep 30/30 | train loss 0.2689 acc 0.9087 | val loss 0.3211 acc 0.9304 auc 0.9898 | lr 5.00e-05 | 2.0s (no improve 2/7)
+[fold 3] stopped: max_epochs
+[fold 3] best epoch 28 | best val loss 0.2852 | val acc 0.9261 | time 1.0 min
+================================================================================
+STEP 3: testing on common test set
+================================================================================
+  [freeze] trainable 2,698,116/6,518,308 params
+  [freeze] trainable layers: ['blocks.6.0.bn1', 'blocks.6.0.bn2', 'blocks.6.0.bn3', 'blocks.6.0.conv_dw', 'blocks.6.0.conv_pw', 'blocks.6.0.conv_pwl', 'blocks.6.0.se.conv_expand', 'blocks.6.0.se.conv_reduce', 'blocks.6.1.bn1', 'blocks.6.1.bn2', 'blocks.6.1.bn3', 'blocks.6.1.conv_dw', 'blocks.6.1.conv_pw', 'blocks.6.1.conv_pwl', 'blocks.6.1.se.conv_expand', 'blocks.6.1.se.conv_reduce', 'bn2', 'classifier', 'conv_head']
+[efficientnet_b1 fold 1] TEST acc 0.9371 | macroF1 0.9361 | weightedF1 0.9373 | ROC-AUC(macro OvR) 0.9953
+  [freeze] trainable 2,698,116/6,518,308 params
+  [freeze] trainable layers: ['blocks.6.0.bn1', 'blocks.6.0.bn2', 'blocks.6.0.bn3', 'blocks.6.0.conv_dw', 'blocks.6.0.conv_pw', 'blocks.6.0.conv_pwl', 'blocks.6.0.se.conv_expand', 'blocks.6.0.se.conv_reduce', 'blocks.6.1.bn1', 'blocks.6.1.bn2', 'blocks.6.1.bn3', 'blocks.6.1.conv_dw', 'blocks.6.1.conv_pw', 'blocks.6.1.conv_pwl', 'blocks.6.1.se.conv_expand', 'blocks.6.1.se.conv_reduce', 'bn2', 'classifier', 'conv_head']
+[efficientnet_b1 fold 2] TEST acc 0.9314 | macroF1 0.9287 | weightedF1 0.9307 | ROC-AUC(macro OvR) 0.9936
+  [freeze] trainable 2,698,116/6,518,308 params
+  [freeze] trainable layers: ['blocks.6.0.bn1', 'blocks.6.0.bn2', 'blocks.6.0.bn3', 'blocks.6.0.conv_dw', 'blocks.6.0.conv_pw', 'blocks.6.0.conv_pwl', 'blocks.6.0.se.conv_expand', 'blocks.6.0.se.conv_reduce', 'blocks.6.1.bn1', 'blocks.6.1.bn2', 'blocks.6.1.bn3', 'blocks.6.1.conv_dw', 'blocks.6.1.conv_pw', 'blocks.6.1.conv_pwl', 'blocks.6.1.se.conv_expand', 'blocks.6.1.se.conv_reduce', 'bn2', 'classifier', 'conv_head']
+[efficientnet_b1 fold 3] TEST acc 0.9200 | macroF1 0.9148 | weightedF1 0.9175 | ROC-AUC(macro OvR) 0.9962
+[efficientnet_b1 3-fold soft-vote ensemble] TEST acc 0.9200 | macroF1 0.9158 | weightedF1 0.9183 | ROC-AUC(macro OvR) 0.9961
+
+            model  accuracy  precision_macro  recall_macro  macro_f1  weighted_f1  roc_auc_ovr_macro  roc_auc_ovr_weighted
+           fold_1    0.9371           0.9401        0.9362    0.9361       0.9373             0.9953                0.9954
+           fold_2    0.9314           0.9348        0.9274    0.9287       0.9307             0.9936                0.9937
+           fold_3    0.9200           0.9287        0.9137    0.9148       0.9175             0.9962                0.9963
+    mean_of_folds    0.9295           0.9345        0.9258    0.9265       0.9285             0.9950                0.9951
+     std_of_folds    0.0087           0.0057        0.0113    0.0108       0.0101             0.0013                0.0014
+ensemble_softvote    0.9200           0.9257        0.9149    0.9158       0.9183             0.9961                0.9962
+================================================================================
+STEP 4: efficiency benchmark (fold-1 best model, CPU, batch=1)
+================================================================================
+  [freeze] trainable 2,698,116/6,518,308 params
+  [freeze] trainable layers: ['blocks.6.0.bn1', 'blocks.6.0.bn2', 'blocks.6.0.bn3', 'blocks.6.0.conv_dw', 'blocks.6.0.conv_pw', 'blocks.6.0.conv_pwl', 'blocks.6.0.se.conv_expand', 'blocks.6.0.se.conv_reduce', 'blocks.6.1.bn1', 'blocks.6.1.bn2', 'blocks.6.1.bn3', 'blocks.6.1.conv_dw', 'blocks.6.1.conv_pw', 'blocks.6.1.conv_pwl', 'blocks.6.1.se.conv_expand', 'blocks.6.1.se.conv_reduce', 'bn2', 'classifier', 'conv_head']
+  (codecarbon unavailable: No module named 'codecarbon') - energy will be estimated only
+[efficiency] params 6,518,308 | GFLOPs 1.371055904 | size 25.3 MB | CPU 56.5 ms | 17.7 FPS | RAM peak 2507 MB
+
+DONE. Everything saved in: /content/drive/MyDrive/Colab Notebooks/Thesis notebook/efficientnet_b1_20261016_194615

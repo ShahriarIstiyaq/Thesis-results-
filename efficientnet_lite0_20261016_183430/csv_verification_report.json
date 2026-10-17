@@ -1,0 +1,82 @@
+{
+  "classes": [
+    "Aphids_Disease",
+    "Blotch",
+    "Healthy_Leaf",
+    "Leaf_Spot"
+  ],
+  "images_on_disk": 865,
+  "folds": {
+    "1": {
+      "n_train": 460,
+      "n_val": 230,
+      "train_per_class": [
+        117,
+        127,
+        113,
+        103
+      ],
+      "val_per_class": [
+        59,
+        63,
+        57,
+        51
+      ],
+      "train_val_overlap": 0,
+      "train_test_overlap": 0,
+      "val_test_overlap": 0,
+      "train_test_filename_overlap": 0,
+      "val_test_filename_overlap": 0,
+      "duplicate_paths_in_train": 0,
+      "duplicate_paths_in_val": 0
+    },
+    "2": {
+      "n_train": 460,
+      "n_val": 230,
+      "train_per_class": [
+        117,
+        127,
+        113,
+        103
+      ],
+      "val_per_class": [
+        59,
+        63,
+        57,
+        51
+      ],
+      "train_val_overlap": 0,
+      "train_test_overlap": 0,
+      "val_test_overlap": 0,
+      "train_test_filename_overlap": 0,
+      "val_test_filename_overlap": 0,
+      "duplicate_paths_in_train": 0,
+      "duplicate_paths_in_val": 0
+    },
+    "3": {
+      "n_train": 460,
+      "n_val": 230,
+      "train_per_class": [
+        118,
+        126,
+        114,
+        102
+      ],
+      "val_per_class": [
+        58,
+        64,
+        56,
+        52
+      ],
+      "train_val_overlap": 0,
+      "train_test_overlap": 0,
+      "val_test_overlap": 0,
+      "train_test_filename_overlap": 0,
+      "val_test_filename_overlap": 0,
+      "duplicate_paths_in_train": 0,
+      "duplicate_paths_in_val": 0
+    }
+  },
+  "unique_images_in_csvs": 865,
+  "imbalance_ratio_fold1_train": 1.233009708737864
+}

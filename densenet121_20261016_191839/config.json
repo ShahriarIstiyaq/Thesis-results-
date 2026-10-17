@@ -1,0 +1,81 @@
+{
+  "config": {
+    "data_root": "/content/drive/MyDrive/Dataset Files/Turmeric Dataset/Original DataSet",
+    "folds_dir": "/content/drive/MyDrive/Dataset Files/Turmeric Dataset/3Fold_CV",
+    "test_dir": "/content/drive/MyDrive/Dataset Files/Turmeric Dataset/Common_test_20",
+    "output_root": "/content/drive/MyDrive/Colab Notebooks/Thesis notebook",
+    "resume_run_dir": null,
+    "model_name": "densenet121",
+    "model_source": "timm",
+    "pretrained": true,
+    "dropout": 0.3,
+    "num_classes_expected": 4,
+    "freeze_backbone": true,
+    "unfreeze_last_blocks": 1,
+    "model_overrides": {
+      "densenet121": {
+        "img_size": 224
+      }
+    },
+    "img_size": 224,
+    "batch_size": 32,
+    "max_epochs": 30,
+    "lr": 0.0001,
+    "weight_decay": 0.0001,
+    "optimizer": "AdamW",
+    "seed": 42,
+    "scheduler": {
+      "type": "ReduceLROnPlateau",
+      "mode": "min",
+      "factor": 0.5,
+      "patience": 3,
+      "min_lr": 1e-07
+    },
+    "early_stopping": {
+      "monitor": "val_loss",
+      "patience": 7,
+      "min_delta": 0.0001
+    },
+    "use_amp": true,
+    "use_class_weights": false,
+    "num_workers": 2,
+    "cache_images_in_ram": true,
+    "imagenet_mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "imagenet_std": [
+      0.229,
+      0.224,
+      0.225
+    ],
+    "augmentation": {
+      "rotation_factor": 0.1,
+      "horizontal_flip": true,
+      "vertical_flip": true,
+      "zoom_factor": 0.1,
+      "shear_x_factor": 0.1,
+      "shear_y_factor": 0.1
+    },
+    "bench": {
+      "warmup": 20,
+      "runs": 100,
+      "energy_seconds": 30,
+      "assumed_cpu_tdp_watts": 15.0
+    }
+  },
+  "environment": {
+    "device": "cuda",
+    "gpu": "Tesla T4",
+    "torch": "2.11.0+cu130",
+    "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+    "class_names": [
+      "Aphids_Disease",
+      "Blotch",
+      "Healthy_Leaf",
+      "Leaf_Spot"
+    ],
+    "run_started": "2026-10-16T19:18:47.222555"
+  }
+}

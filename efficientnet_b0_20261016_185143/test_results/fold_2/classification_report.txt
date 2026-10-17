@@ -1,0 +1,10 @@
+                precision    recall  f1-score   support
+
+Aphids_Disease       0.81      0.96      0.88        45
+        Blotch       0.89      0.85      0.87        48
+  Healthy_Leaf       0.91      0.98      0.94        43
+     Leaf_Spot       0.83      0.64      0.72        39
+
+      accuracy                           0.86       175
+     macro avg       0.86      0.86      0.85       175
+  weighted avg       0.86      0.86      0.86       175

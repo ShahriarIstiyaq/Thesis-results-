@@ -1,0 +1,22 @@
+{
+  "fold": 2,
+  "epochs_run": 30,
+  "stop_reason": "max_epochs",
+  "best_epoch": 30,
+  "best_val_loss": 0.37071820160617,
+  "val_acc_at_best_epoch": 0.9347826086956522,
+  "val_roc_auc_at_best_epoch": 0.9930232887140567,
+  "best_val_acc_any_epoch": 0.9347826086956522,
+  "final_train_loss": 0.3174601264621901,
+  "final_train_acc": 0.95,
+  "total_training_time_s": 65.55814790725708,
+  "avg_epoch_time_s": 2.1852715969085694,
+  "total_params": 6957956,
+  "trainable_params": 2164228,
+  "n_train": 460,
+  "n_val": 230,
+  "energy_train": {
+    "energy_kwh": null,
+    "co2_kg": null
+  }
+}

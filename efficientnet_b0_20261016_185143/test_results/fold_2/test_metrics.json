@@ -1,0 +1,72 @@
+{
+  "n_samples": 175,
+  "accuracy": 0.8628571428571429,
+  "precision_macro": 0.8622504785343178,
+  "recall_macro": 0.8568730123235937,
+  "f1_macro": 0.8545873379546499,
+  "precision_weighted": 0.863159498417907,
+  "recall_weighted": 0.8628571428571429,
+  "f1_weighted": 0.8583272889830742,
+  "macro_f1": 0.8545873379546499,
+  "weighted_f1": 0.8583272889830742,
+  "per_class": {
+    "Aphids_Disease": {
+      "precision": 0.8113207547169812,
+      "recall": 0.9555555555555556,
+      "f1": 0.8775510204081632,
+      "support": 45,
+      "auc": 0.9822222222222221
+    },
+    "Blotch": {
+      "precision": 0.8913043478260869,
+      "recall": 0.8541666666666666,
+      "f1": 0.8723404255319149,
+      "support": 48,
+      "auc": 0.9827755905511811
+    },
+    "Healthy_Leaf": {
+      "precision": 0.9130434782608695,
+      "recall": 0.9767441860465116,
+      "f1": 0.9438202247191011,
+      "support": 43,
+      "auc": 0.9950669485553207
+    },
+    "Leaf_Spot": {
+      "precision": 0.8333333333333334,
+      "recall": 0.6410256410256411,
+      "f1": 0.7246376811594203,
+      "support": 39,
+      "auc": 0.9630467571644042
+    }
+  },
+  "roc_auc_ovr_macro": 0.980777879623282,
+  "roc_auc_ovr_weighted": 0.9812567466499843,
+  "auc_micro": 0.9769904761904762,
+  "confusion_matrix": [
+    [
+      43,
+      1,
+      1,
+      0
+    ],
+    [
+      0,
+      41,
+      2,
+      5
+    ],
+    [
+      1,
+      0,
+      42,
+      0
+    ],
+    [
+      9,
+      4,
+      1,
+      25
+    ]
+  ],
+  "classification_report": "                precision    recall  f1-score   support\n\nAphids_Disease       0.81      0.96      0.88        45\n        Blotch       0.89      0.85      0.87        48\n  Healthy_Leaf       0.91      0.98      0.94        43\n     Leaf_Spot       0.83      0.64      0.72        39\n\n      accuracy                           0.86       175\n     macro avg       0.86      0.86      0.85       175\n  weighted avg       0.86      0.86      0.86       175\n"
+}

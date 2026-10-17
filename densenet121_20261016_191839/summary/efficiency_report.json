@@ -1,0 +1,35 @@
+{
+  "cpu": "Model name:                              Intel(R) Xeon(R) CPU @ 2.00GHz | logical cores: 2",
+  "torch_threads": 1,
+  "input_shape": [
+    1,
+    3,
+    224,
+    224
+  ],
+  "total_params": 6957956,
+  "trainable_params": 2164228,
+  "flops": 5666283520,
+  "gflops": 5.66628352,
+  "macs": 2833141760,
+  "model_size_mb": 27.120915412902832,
+  "cpu_latency_ms_mean": 625.0496441000064,
+  "cpu_latency_ms_std": 13.968093055566223,
+  "cpu_latency_ms_median": 622.8776185000697,
+  "cpu_latency_ms_p95": 652.556630750064,
+  "fps": 1.5998729211979241,
+  "warmup_runs": 20,
+  "timed_runs": 100,
+  "ram_baseline_mb": 2388.171875,
+  "ram_peak_mb": 2388.2421875,
+  "ram_increase_mb": 0.0703125,
+  "energy_per_inference_J_estimated_TDP": 9.375744661500097,
+  "assumed_cpu_tdp_watts": 15.0,
+  "codecarbon": {
+    "energy_kwh": null,
+    "co2_kg": null,
+    "inferences_in_energy_run": 49,
+    "duration_s": 30
+  },
+  "note": "Colab CPU numbers do not represent a target edge device. CodeCarbon on Colab usually ESTIMATES power from CPU model/TDP (no hardware power sensor); treat energy as an estimate."
+}
